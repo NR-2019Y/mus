@@ -42,6 +42,7 @@ mus2 = MusJoin(cmus2, vcth, 't32', t32);
 mus3 = MusJoin(cmus3, vctl, 't32', t32); 
 mus  = mus1 + mus2 + mus3; mus = mus / max(abs(mus));
 clear sound; sound(mus, fs);
+% audiowrite("cm_mat_ks.flac", mus, fs)                           %% 生成flac音频文件
 
 %% EKS
 cmus1 = cellfun(@BasicMusNoteEKS,datMus1,'UniformOutput',false); 
