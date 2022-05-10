@@ -23,9 +23,9 @@ Sound[Join[
 ```
 fs = 44100;
 
-eval(sprintf('datMus1 = %s', fileread('dat_Childhood_Memory_bandari_E_matlab.txt')));
-eval(sprintf('datMus2 = %s', fileread('dat_Childhood_Memory_bandari_H_matlab.txt')));
-eval(sprintf('datMus3 = %s', fileread('dat_Childhood_Memory_bandari_L_matlab.txt')));
+eval(sprintf('datMus1 = %s', fileread('dat_Childhood_Memory_bandari_E_matlab.dat.m')));
+eval(sprintf('datMus2 = %s', fileread('dat_Childhood_Memory_bandari_H_matlab.dat.m')));
+eval(sprintf('datMus3 = %s', fileread('dat_Childhood_Memory_bandari_L_matlab.dat.m')));
 
 tbe = readtable('E.TXT'); vcte = tbe{:,2}';
 tbh = readtable('H.TXT'); vcth = tbh{:,2}';
