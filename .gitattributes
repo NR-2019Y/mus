@@ -1,5 +1,5 @@
 *.m linguist-language=MATLAB
-*.wl linguist-language=Mathematica
+*.wl linguist-language=MATLAB
 mid_and_mp3_file/* linguist-vendored
 *.txt linguist-vendored
 *.flac linguist-vendored
