@@ -49,11 +49,11 @@ Sound[
 
 #### 4 整理后的简谱（用于MATLAB演奏，不含音符时长信息）
 
-dat_snowdreams_HH_matlab.txt
+dat_snowdreams_HH_matlab.dat.m
 
-dat_snowdreams_HL_matlab.txt
+dat_snowdreams_HL_matlab.dat.m
 
-dat_snowdreams_L_matlab.txt
+dat_snowdreams_L_matlab.dat.m
 
 
 
@@ -69,9 +69,9 @@ vcthl = tbhl{:,2}';
 vctl = tbl{:,2}';
 t32 = 3/4/8;
 
-eval(sprintf('datMus0 = %s', fileread('dat_snowdreams_HH_matlab.txt')));
-eval(sprintf('datMus1 = %s', fileread('dat_snowdreams_HL_matlab.txt')));
-eval(sprintf('datMus2 = %s', fileread('dat_snowdreams_L_matlab.txt')));
+eval(sprintf('datMus0 = %s', fileread('dat_snowdreams_HH_matlab.dat.m')));
+eval(sprintf('datMus1 = %s', fileread('dat_snowdreams_HL_matlab.dat.m')));
+eval(sprintf('datMus2 = %s', fileread('dat_snowdreams_L_matlab.dat.m')));
 
 %% Karplus-Strong Algorithm
 % 升降调 cmus0 = cellfun(@(x) BasicMusNoteKS(x + 12),datMus0,'UniformOutput',false);  
