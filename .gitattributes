@@ -1,2 +1,2 @@
 mid_and_mp3_file/* linguist-vendored=true
-*.txt linguist-vendored=true
+*.txt linguist-detectable=false
