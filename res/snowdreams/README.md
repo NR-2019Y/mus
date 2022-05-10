@@ -19,13 +19,18 @@ l.txt
 
 简化版 outNEW1_NC.wl
 
+（导入 mus0，mus1，mus2）
+
 复杂版 outNEW1.wl
+
+（导入 mus1Nc，mus2Nc）
 
 使用示例：
 ```
 Import["outNEW1.wl"];
 Import["outNEW1_NC.wl"];
 (* Sound[Join[{"BrightPiano"},mus0, mus1, mus2]] *)
+
 ToneAdjust[None, n_] = None;
 ToneAdjust[x_, n_] := x + n;
 (* MusToneAdjust[mus_, n_] := Map[Join[SoundNote[ToneAdjust[#[[1]], n]], #[[2 ;;]]] &, mus]; *)
