@@ -1,7 +1,7 @@
-#### Karplus-Strong Algorithm
+### Karplus-Strong Algorithm
 
 BasicMusNoteKS.m
 
-#### Extended Karplus-Strong Algorithm
+### Extended Karplus-Strong Algorithm
 
 BasicMusNoteEKS.m
