@@ -1,2 +1,3 @@
 *.m linguist-language=MATLAB
 *.wl linguist-language=Mathematica
+*.md linguist-language=MATLAB
