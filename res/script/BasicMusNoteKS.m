@@ -7,7 +7,7 @@ function Y = BasicMusNoteKS(nInput)
 
 	persistent MusNote4SecKSDb;   % 要判断全局变量fs是否被修改了
 	if isempty(Lastfs) || (Lastfs ~= fs) Lastfs = fs;
-		MusNote4SecKSDb = cell(1,88); % A0 ~ D8，88个音符，n的范围：-38~49
+		MusNote4SecKSDb = cell(1,88); % 88个音符，n的范围：-38~49。n=0表示C4
 		for ii = 1:88
 			n = ii - 39;
 			fq = 261.63 * 2^(n/12);
