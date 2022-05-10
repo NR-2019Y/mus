@@ -6,6 +6,8 @@ MusHMix.mid
 cm_mat_ks.flac
 
 cm_mat_eks.flac
+#### mid文件
+bandari_cm*.mid
 
 ## 3. snowdreams
 #### Karplus-Strong系列算法生成
