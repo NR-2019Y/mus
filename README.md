@@ -2,8 +2,7 @@
 
 ## folder: res
 
-### res/snowdreams 
-### res/Childhood_Memory_bandari
+### res/snowdreams res/Childhood_Memory_bandari
 简谱文件，处理后的简谱（相关的MATLAB、mathematica播放代码）
 
 ### res/script
