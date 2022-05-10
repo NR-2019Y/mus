@@ -17,6 +17,7 @@ l.txt
 
 #### 3 整理后的简谱（用于Mathematica演奏）
 
-outNEW1_NC.wl （简化版）
-outNEW1.wl    （复杂版）
+简化版 outNEW1_NC.wl
+
+复杂版 outNEW1.wl
 
