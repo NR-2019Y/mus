@@ -1,5 +1,6 @@
 function y = MusJoin(datmus, vct, varargin)
 	global fs;
+	if isempty(fs)     fs = 44100; end
 
 	paras = inputParser;
 	addParameter(paras, 't32', 1/8);
