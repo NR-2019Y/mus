@@ -49,6 +49,13 @@ Sound[
 
 #### 4 整理后的简谱（用于MATLAB演奏，不含音符时长信息）
 
+dat_snowdreams_HH_matlab.txt
+
+dat_snowdreams_HL_matlab.txt
+
+dat_snowdreams_L_matlab.txt
+
+
 ```{m}
 fs = 44100;
 
