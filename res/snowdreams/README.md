@@ -21,3 +21,8 @@ l.txt
 
 复杂版 outNEW1.wl
 
+使用示例：
+```
+Import["outNEW1.wl"];
+Import["outNEW1_NC.wl"];
+```
