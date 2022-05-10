@@ -2,3 +2,5 @@
 *.wl linguist-language=Mathematica
 mid_and_mp3_file/* linguist-vendored
 *.txt linguist-vendored
+*.flac linguist-vendored
+*.mid linguist-vendored
