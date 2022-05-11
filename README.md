@@ -12,3 +12,7 @@ Karplus-Strong Algorithm 和 Extended Karplus-Strong Algorithm（MATLAB实现，
 
 ## folder: mid_and_mp3_file
 mid文件，mp3等格式的音频（可由前面的MATLAB、mathematica代码生成）
+
+<audio id="audio" controls="" preload="none">
+  <source id="mp3" src="mid_and_mp3_file/snowdreams_mat_eks.flac">
+</audio>
