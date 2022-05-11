@@ -27,7 +27,7 @@ l.txt
 （导入 mus0，mus1，mus2）
 
 使用示例：
-```
+```{mathematica}
 Import["outNEW1.wl"];
 Import["outNEW1_NC.wl"];
 (* Sound[Join[{"BrightPiano"},mus0, mus1, mus2]] *)
@@ -58,7 +58,7 @@ dat_snowdreams_L_matlab.dat.m
 
 
 使用示例：
-```{m}
+```{matlab}
 fs = 44100;
 
  tbhh = readtable('1TO20HH.TXT');
