@@ -1,6 +1,6 @@
 #### 1. Mathematica 使用示例
 
-```
+```{mathematica}
 Import["mmadat0.wl"];
 Import["mmadat1.wl"];
 Import["mmadat2.wl"];
@@ -20,7 +20,7 @@ Sound[Join[
 
 #### 2. MATLAB 使用示例
 
-```
+```{matlab}
 fs = 44100;
 
 eval(sprintf('datMus1 = %s', fileread('dat_Childhood_Memory_bandari_E_matlab.dat.m')));
