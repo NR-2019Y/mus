@@ -1,6 +1,6 @@
 ### 1. use MATLAB
 
-```{matlab}
+```{MATLAB}
 
 tbh = readtable('H.TXT'); vcth = tbh{:,2}';
 tbl = readtable('L.TXT'); vctl = tbl{:,2}';
@@ -10,14 +10,16 @@ fs  = 44100;
 eval(sprintf('datMus1 = %s', fileread('dat_HOE_H_matlab.txt')));
 eval(sprintf('datMus2 = %s', fileread('dat_HOE_L_matlab.txt')));
 
-cmus1 = cellfun(@(x) BasicMusNoteEKS(x - 8),datMus1,'UniformOutput',false); 
-cmus2 = cellfun(@(x) BasicMusNoteEKS(x - 8),datMus2,'UniformOutput',false); 
+tadj = 8;
+cmus1 = cellfun(@(x) BasicMusNoteEKS(x + tadj),datMus1,'UniformOutput',false); 
+cmus2 = cellfun(@(x) BasicMusNoteEKS(x + tadj),datMus2,'UniformOutput',false); 
 mus1 = MusJoin(cmus1, vcth, 't32', t32); 
 mus2 = MusJoin(cmus2, vctl, 't32', t32); 
 mus = vecadd(mus1, mus2); mus = mus / max(abs(mus));
 clear sound; sound(mus, fs);
 
 ```
+
 
 ### 2. use mathematica
 
