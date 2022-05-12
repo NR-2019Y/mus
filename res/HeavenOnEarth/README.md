@@ -14,7 +14,7 @@ cmus1 = cellfun(@(x) BasicMusNoteEKS(x - 8),datMus1,'UniformOutput',false);
 cmus2 = cellfun(@(x) BasicMusNoteEKS(x - 8),datMus2,'UniformOutput',false); 
 mus1 = MusJoin(cmus1, vcth, 't32', t32); 
 mus2 = MusJoin(cmus2, vctl, 't32', t32); 
-mus = mus1 + mus2; mus = mus / max(abs(mus));
+mus = vecadd(mus1, mus2); mus = mus / max(abs(mus));
 clear sound; sound(mus, fs);
 
 ```
