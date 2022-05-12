@@ -23,13 +23,9 @@ clear sound; sound(mus, fs);
 
 ```{mathematica}
 Import["outHOE.wl"];
-Import["outHOEN.wl"];
 ToneAdjust[None, n_] = None;
 ToneAdjust[x_, n_] := x + n;
 nadjust = -8;
-Sound[Join[
-  (*Map[ SoundNote[ToneAdjust[#[[1]], nadjust], #[[2]], "Cello"] &, Join[musn1,musn2]],*)
-  Map[ SoundNote[ToneAdjust[#[[1]], nadjust], #[[2]], "Atmosphere", SoundVolume -> 1] &, Join[mus1, mus2]]
-]]
+Sound[ Map[ SoundNote[ToneAdjust[#[[1]], nadjust], #[[2]], "Atmosphere", SoundVolume -> 1] &, Join[mus1, mus2]] ]
 
 ```
