@@ -17,8 +17,8 @@ function y = MusJoin(datmus, vct, varargin)
 	vctEnd   = cumsum(vct);
 	vctBegin = [0, vctEnd(1:end-1)];
 
-	idxEnd   = floor( vctEnd   * t32Len );
-	idxBegin = floor( vctBegin * t32Len );
+	idxEnd   = int64( vctEnd   * t32Len );
+	idxBegin = int64( vctBegin * t32Len );
 	
 	y = zeros(1, idxEnd(end) + LEN);
 	
