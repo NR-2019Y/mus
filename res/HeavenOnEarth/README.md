@@ -22,14 +22,14 @@ clear sound; sound(mus, fs);
 ### 2. use mathematica
 
 ```{mathematica}
-Import["C:/Users/Lenovo/emusic/mma/HeavenOnEarth/outHOE.wl"];
-Import["C:/Users/Lenovo/emusic/mma/HeavenOnEarth/outHOEN.wl"];
+Import["outHOE.wl"];
+Import["outHOEN.wl"];
 ToneAdjust[None, n_] = None;
 ToneAdjust[x_, n_] := x + n;
 nadjust = -8;
 Sound[Join[
   (*Map[ SoundNote[ToneAdjust[#[[1]], nadjust], #[[2]], "Cello"] &, Join[musn1,musn2]],*)
   Map[ SoundNote[ToneAdjust[#[[1]], nadjust], #[[2]], "Atmosphere", SoundVolume -> 1] &, Join[mus1, mus2]]
-]];
+]]
 
 ```
