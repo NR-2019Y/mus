@@ -6,14 +6,18 @@ MusHMix.mid
 cm_mat_ks.flac
 
 cm_mat_eks.flac
-#### mid文件
+
+#### mid文件/mathematica生成的音频
 bandari_cm*.mid
+
+bandari_cm*.mp3
 
 ## 3. snowdreams
 #### Karplus-Strong系列算法生成
 snowdreams_mat_ks.flac
 
 snowdreams_mat_eks.flac
+
 #### mid文件
 snowdreams_mma*.mid
 
