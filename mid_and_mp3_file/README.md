@@ -18,6 +18,8 @@ snowdreams_mat_eks.flac
 snowdreams_mma*.mid
 
 ## 4. Heaven On Earth
+#### Karplus-Strong系列算法生成
+HeavenOnEarth-8_mat_eks.flac
 
 #### mid文件
 HeavenOnEarth_mma-8_Atmosphere.mid
