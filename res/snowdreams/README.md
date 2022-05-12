@@ -58,7 +58,7 @@ dat_snowdreams_L_matlab.dat.m
 
 
 使用示例：
-```{matlab}
+```{MATLAB}
 fs = 44100;
 
  tbhh = readtable('1TO20HH.TXT');
