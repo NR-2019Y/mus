@@ -1,6 +1,5 @@
 function y = MusJoin(datmus, vct, varargin)
 	global fs;
-	if isempty(fs)     fs = 44100; end
 
 	paras = inputParser;
 	addParameter(paras, 't32', 1/8);
@@ -18,10 +17,10 @@ function y = MusJoin(datmus, vct, varargin)
 	vctEnd   = cumsum(vct);
 	vctBegin = [0, vctEnd(1:end-1)];
 
-	idxEnd   = vctEnd   * t32Len;
-	idxBegin = vctBegin * t32Len;
+	idxEnd   = floor( vctEnd   * t32Len );
+	idxBegin = floor( vctBegin * t32Len );
 	
-	y = zeros(1, vctEnd(end) * t32Len + LEN);
+	y = zeros(1, idxEnd(end) + LEN);
 	
 	Len = length(datmus);
 	for i = 1:Len
