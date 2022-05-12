@@ -10,7 +10,7 @@ fs  = 44100;
 eval(sprintf('datMus1 = %s', fileread('dat_HOE_H_matlab.txt')));
 eval(sprintf('datMus2 = %s', fileread('dat_HOE_L_matlab.txt')));
 
-tadj = 8;
+tadj = 0;
 cmus1 = cellfun(@(x) BasicMusNoteEKS(x + tadj),datMus1,'UniformOutput',false); 
 cmus2 = cellfun(@(x) BasicMusNoteEKS(x + tadj),datMus2,'UniformOutput',false); 
 mus1 = MusJoin(cmus1, vcth, 't32', t32); 
