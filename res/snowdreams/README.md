@@ -94,7 +94,11 @@ mus2 = MusJoin(cmus2, vctl,  't32', t32);
 mus = mus0 + mus1 + mus2; mus = mus / max(abs(mus));
 clear sound; sound(mus, fs);
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BasicMusNoteKS(x) 和 BasicMusNoteKS(x + 12) 不容易听出区别
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BasicMusNote BasicMusNoteADSR 有些和弦很难听
+
 iadj = 12;
 cvcthh = cumsum(vcthh); IDXHH = ((cvcthh > 416) & (cvcthh <= 704)) | ((cvcthh > 1248) & (cvcthh <= 1536)) | ((cvcthh > 1792) & (cvcthh <= 2368)); 
 cvcthl = cumsum(vcthl); IDXHL = ((cvcthl > 416) & (cvcthl <= 704)) | ((cvcthl > 1248) & (cvcthl <= 1536)) | ((cvcthl > 1792) & (cvcthl <= 2336)); 
@@ -117,5 +121,9 @@ nmus1 = MusJoin(ncmus1, vcthl, 't32', t32);
 nmus2 = MusJoin(ncmus2, vctl,  't32', t32); 
 nmus = nmus0 + nmus1 + nmus2; nmus = nmus / max(abs(nmus)); 
 clear sound; sound(nmus, fs);
+audiowrite("snowdreams_mat_iadj.flac", nmus, fs);
+
+% use BasicMusNoteADSR instead of BasicMusNote
+% audiowrite("snowdreams_mat_iadj_adsr.flac", nmus, fs);
 
 ```
