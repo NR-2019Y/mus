@@ -94,7 +94,7 @@ mus2 = MusJoin(cmus2, vctl,  't32', t32);
 mus = mus0 + mus1 + mus2; mus = mus / max(abs(mus));
 clear sound; sound(mus, fs);
 
-% BasicMusNoteKS(x) 和 BasicMusNoteKS(x + 12) 不容易听出区别
+% BasicMusNoteKS(x) 和 BasicMusNoteKS(x + 12) 不容易听出区别，BasicMusNoteEKS也有这种问题
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % BasicMusNote BasicMusNoteADSR 有些和弦很难听
