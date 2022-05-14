@@ -1,4 +1,7 @@
 function Y = BasicMusNote(nInput)
+% REFERENCE
+% https://github.com/Nuullll/music-synthesizer
+% https://zhuanlan.zhihu.com/p/378287088
 	global fs;
 	persistent Lastfs;
 	if isempty(fs)     fs = 44100; end
@@ -7,7 +10,7 @@ function Y = BasicMusNote(nInput)
 
 	persistent MusNote4SecDb;   % 要判断全局变量fs是否被修改了
 	if isempty(Lastfs) || (Lastfs ~= fs) Lastfs = fs;
-		MusNote4SecDb = cell(1,88); % A0 ~ D8，88个音符，n的范围：-38~49
+		MusNote4SecDb = cell(1,88); % 88个音符，n的范围：-38~49。n=0表示C4
 		VEC = 1:LEN;
 		t = (VEC - 1) / fs;         % [0, 4)
 		for ii = 1:88
@@ -17,9 +20,7 @@ function Y = BasicMusNote(nInput)
 			k = [1,0.20,0.15,0.15,0.10,0.10,0.01,0.05,0.01,0.01,0.003,0.003,0.002,0.002]; % 钢琴
 			% k = [1 0.35 0.23 0.12 0.04 0.08 0.08 0.08 0.12]; % 吉他
 			% k = [0.55 0.95 0.65 0.3 0.1]; % 吉他
-			% k = 1;
-			% k = 1;
-			
+
 			y = k * cos(2 * pi * fq * (1:length(k)) .'* t);
 			y = y / max(y);
 
