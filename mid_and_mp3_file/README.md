@@ -18,6 +18,11 @@ snowdreams_mat_ks.flac
 
 snowdreams_mat_eks.flac
 
+#### 加谐波，ADSR包络等处理
+snowdreams_mat_iadj.flac
+
+snowdreams_mat_iadj_adsr.flac
+
 #### mid文件
 snowdreams_mma*.mid
 
