@@ -94,4 +94,28 @@ mus2 = MusJoin(cmus2, vctl,  't32', t32);
 mus = mus0 + mus1 + mus2; mus = mus / max(abs(mus));
 clear sound; sound(mus, fs);
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+iadj = 12;
+cvcthh = cumsum(vcthh); IDXHH = ((cvcthh > 416) & (cvcthh <= 704)) | ((cvcthh > 1248) & (cvcthh <= 1536)) | ((cvcthh > 1792) & (cvcthh <= 2368)); 
+cvcthl = cumsum(vcthl); IDXHL = ((cvcthl > 416) & (cvcthl <= 704)) | ((cvcthl > 1248) & (cvcthl <= 1536)) | ((cvcthl > 1792) & (cvcthl <= 2336)); 
+cvctl  = cumsum(vctl);  IDXL  = ((cvctl  > 416) & (cvctl  <= 704)) | ((cvctl  > 1248) & (cvctl  <= 1536)) | ((cvctl  > 1792) & (cvctl  <= 2368)); 
+ndatMus0 = arrayfun(@(x, b) { x{1} + b * iadj }, datMus0, IDXHH);
+ndatMus1 = arrayfun(@(x, b) { x{1} + b * iadj }, datMus1, IDXHL);
+ndatMus2 = arrayfun(@(x, b) { x{1} + b * iadj }, datMus2, IDXL );
+% ndatMus2 = datMus2;
+sidx1 = cellfun(@length, ndatMus1) > 1;
+ndatMus1(sidx1) = cellfun(@(x) {x(end)}, ndatMus1(sidx1));
+sidx2 = cellfun(@length, ndatMus2) > 1;
+ndatMus2(sidx2) = cellfun(@(x) {x(1)  }, ndatMus2(sidx2));
+
+tadj = 0;
+ncmus0 = cellfun(@(x) BasicMusNote(x + tadj), ndatMus0, 'UniformOutput',false); 
+ncmus1 = cellfun(@(x) BasicMusNote(x + tadj), ndatMus1, 'UniformOutput',false); 
+ncmus2 = cellfun(@(x) BasicMusNote(x + tadj), ndatMus2, 'UniformOutput',false); 
+nmus0 = MusJoin(ncmus0, vcthh, 't32', t32); 
+nmus1 = MusJoin(ncmus1, vcthl, 't32', t32); 
+nmus2 = MusJoin(ncmus2, vctl,  't32', t32); 
+nmus = nmus0 + nmus1 + nmus2; nmus = nmus / max(abs(nmus)); 
+clear sound; sound(nmus, fs);
+
 ```
