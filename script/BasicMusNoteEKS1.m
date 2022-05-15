@@ -43,7 +43,7 @@ function Y = BasicMusNoteEKS1(nInput)
 				%% Two-Zero String Damping Filter
 				t60 = 4;
 				rho = 0.01 ^ (1 / t60 / fq);
-				rho = 1;
+				% rho = 1;
 
 				B = 0.9;
 				h0 = (1 + B) / 2;
