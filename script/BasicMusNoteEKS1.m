@@ -8,6 +8,8 @@ function Y = BasicMusNoteEKS1(nInput)
 	persistent MusNote4SecKSDb;   % 要判断全局变量fs是否被修改了
 	if isempty(Lastfs) || (Lastfs ~= fs) Lastfs = fs;
 		MusNote4SecKSDb = cell(1,88); % A0 ~ D8，88个音符，n的范围：-38~49
+		ymul = genADSR(0.05, 0.9, 0.0001, 0.05, LEN);
+		
 		for ii = 1:88
 			n = ii - 39;
 			fq = 261.63 * 2^(n/12);
@@ -15,47 +17,55 @@ function Y = BasicMusNoteEKS1(nInput)
 			T = double( uint64(fs / fq) );
 			TimesOfT = ceil(LEN / T);
 			
-			wnoise = randn(1, T);
+			BUFADD = 4;
+			wnoise = randn(1, T + BUFADD);
 			wnoise = wnoise / max(abs(wnoise));
 			x = wnoise;
-			
+
 			%% Pick-Direction Lowpass Filter
-			p = 0.99;
+			p = 0.9;
 			x = filter(1 - p, [1, -p], x);
 			
 			%% Pick-Position Comb Filter 
-			beta = 0.2;
-			ppdel = floor(beta * T + 0.5);
-			tmpbuf = zeros(1, T);
-			tmpbuf((ppdel+1):(T)) = x(1 : (T - ppdel));
-			x = x - tmpbuf;
-			
-			x = x / max(abs(x));
+			% beta = 0.2;
+			% ppdel = floor(beta * T);
+			% tmpbuf = zeros(1, T + BUFADD);
+			% tmpbuf((ppdel+1):(T + BUFADD)) = x(1 : (T + BUFADD - ppdel));
+			% x = x - tmpbuf;
 
 			%% LOOP
+			x = x / max(abs(x));
 			buf = zeros(1, TimesOfT * T);
-			buf(1:T) = x;
+			buf(1:T) = x(1+BUFADD:T+BUFADD);
+			x0 = x(1:BUFADD);
 			
-			z1 = [ ];
-			for kk = 2:TimesOfT
-				yd = buf( ((kk - 2) * T + 1) : ((kk - 1) * T) );
-				
-				%% Two-Zero String Damping Filter
-				t60 = 4;
-				rho = 0.01 ^ (1 / t60 / fq);
-				% rho = 1;
+			%% Two-Zero String Damping Filter
+			% rescale : yd / max(abs(yd)), so now `rho' is useless
+			% t60 = 4;
+			% rho = 0.01 ^ (1 / t60 / fq);
 
-				B = 0.9;
-				h0 = (1 + B) / 2;
-				h1 = (1 - B) / 4;
-				[yd, z1] = filter(rho * [h1, h0, h1], 1, yd, z1);
-				% [yd, z1] = filter(rho * [1/2, 1/2], 1, yd, z1); %% KS
-				% yd = rho * yd;
+			B = 0.8; 
+			h0 = (1 + B) / 2; h1 = (1 - B) / 4;
+			[b1, a1] = deal([h1, h0, h1], 1);
+			% [b1, a1] = deal([1/2, 1/2], 1);
+			[~,  z1] = filter(b1, a1, x0);
+
+			yd = buf(1:T);
+			% 不需要: yd = yd / max(abs(yd))
+			for kk = 2:TimesOfT
+				[yd, z1] = filter(b1, a1, yd, z1);
+				
+				ydiv = max(abs(yd));
+				yd = yd / ydiv;
+				z1 = z1 / ydiv;
 
 				buf( ((kk - 1)*T+1):(kk*T) ) = yd;
 			end
 
-			MusNote4SecKSDb{ii} = buf(1:LEN);
+			y = buf(1:LEN) .* ymul;
+			% y = lowpass(y, fq, fs, 'Steepness', 0.5);
+			% y = y / max(abs(y));
+			MusNote4SecKSDb{ii} = y;
 		end
 	end
 	
@@ -63,7 +73,7 @@ function Y = BasicMusNoteEKS1(nInput)
 		Y = zeros(1, LEN);
 	else
 		inputLen = length(nInput);
-		Y = sum(reshape(cell2mat(arrayfun(@(x) MusNote4SecKSDb{x+39}, nInput, 'UniformOutput', false)), LEN, inputLen), 2)';
+		Y = mean(reshape(cell2mat(arrayfun(@(x) MusNote4SecKSDb{x+39}, nInput, 'UniformOutput', false)), LEN, inputLen), 2)';
 	end
 end
 
