@@ -1,6 +1,8 @@
 数据来源 mp3cutterpro.com
 
-#### 音源建立示例
+### 音源建立示例
+
+#### 1 使用 mp3cutterpro.com 上的音源
 
 mid文件：90个音符，分别5s（各音符之间3s的间隔），乐器是Oboe，相应的mathematica代码：
 
@@ -22,3 +24,7 @@ dbOboe.v = arrayfun(@(x) y((x-1)*8*Fs + VLEN), 1:90, 'UniformOutput', false);
 save('db/dbOboe.mat', 'dbOboe');
 
 ```
+
+#### 2 自建音源
+
+源代码见 script 目录：genNote4SecDbADSR.m genNote4SecDbEKS.m genNote4SecDbEKSAndADSR.m
