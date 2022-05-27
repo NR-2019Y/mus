@@ -6,9 +6,11 @@
 简谱文件，处理后的简谱（相关的MATLAB、mathematica播放代码）
 
 ## folder: script
-Karplus-Strong Algorithm 和 Extended Karplus-Strong Algorithm（MATLAB实现，模拟钢琴音效）
+Karplus-Strong Algorithm 和 Extended Karplus-Strong Algorithm等（MATLAB实现，模拟钢琴音效）
 
 应用案例见：res/snowdreams 和 res/Childhood_Memory_bandari 等（README文件）
+
+使用 README.md 中的 MATLAB 代码时，注意 将 您的script所在目录 addpath
 
 ## folder: mid_and_mp3_file
 mid文件，mp3等格式的音频（可由前面的MATLAB、mathematica代码生成）
