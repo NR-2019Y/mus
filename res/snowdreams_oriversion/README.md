@@ -14,6 +14,9 @@ ATube.TXT 管乐器演奏的部分，根据AH.TXT得到，去掉了和弦
 
 ```{matlab}
 
+% cd res目录
+% addpath script目录
+
 fs = 44100;
 t32 = 0.90 / 8;
 
