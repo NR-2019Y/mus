@@ -4,6 +4,12 @@
 
 部分根据 https://www.bilibili.com/video/BV1bW411v7ra 进行修正
 
+AH.TXT 高音部分
+
+AL.TXT 低音部分
+
+ATube.TXT 管乐器演奏的部分，根据AH.TXT得到，去掉了和弦
+
 ### MATLAB播放
 
 ```{matlab}
