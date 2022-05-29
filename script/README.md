@@ -1,8 +1,5 @@
-### Karplus-Strong Algorithm
+### Karplus-Strong Algorithm and Extended Karplus-Strong Algorithm
 
-BasicMusNoteKS.m
+genNote4SecDbEKS.m
 
-### Extended Karplus-Strong Algorithm
-
-BasicMusNoteEKS.m
-
+genNote4SecDbEKSAndADSR.m
