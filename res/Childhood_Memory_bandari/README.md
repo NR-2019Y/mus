@@ -1,3 +1,6 @@
+#### 简谱来源 
+https://www.tan8.com/yuepu-3540.html 或 https://www.tan8.com/yuepu-28788.html
+
 #### 1. Mathematica 使用示例
 
 ```{mathematica}
