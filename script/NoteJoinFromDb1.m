@@ -25,6 +25,7 @@ function y = NoteJoinFromDb1(notes, vct, db, t32, toneadj)
 		note = notes{ii};
 		if ~isinf(note)
 		% 不处理和弦
+			if length(note) > 1, note = note{end}; end
 			mus = db.v{ note + toneadj + db.c4idx };
 			mus = mus .* ymul;
 			
