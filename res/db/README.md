@@ -33,6 +33,9 @@ save('db/dbOboe.mat', 'dbOboe');
 
 ```{matlab}
 
+% https://github.com/Nuullll/music-synthesizer
+% https://zhuanlan.zhihu.com/p/378287088
+
 kdb = { ...
   [1,0.20,0.15,0.15,0.10,0.10,0.01,0.05,0.01,0.01,0.003,0.003,0.002,0.002]  ... % 钢琴
   [1 0.35 0.23 0.12 0.04 0.08 0.08 0.08 0.12]                               ... % 吉他
