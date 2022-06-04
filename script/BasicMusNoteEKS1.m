@@ -1,4 +1,7 @@
 function Y = BasicMusNoteEKS1(nInput)
+
+% 不建议用，基本不能控制包络形状
+
 	global fs;
 	persistent Lastfs;
 	if isempty(fs)     fs = 44100; end
