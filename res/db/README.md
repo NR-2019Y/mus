@@ -27,7 +27,7 @@ save('db/dbOboe.mat', 'dbOboe');
 
 #### 2 自建音源
 
-源代码见 script 目录：genNote4SecDbADSR.m genNote4SecDbEKS.m genNote4SecDbEKSAndADSR.m
+源代码见 script 目录：genNote4SecDbADSR.m genNote4SecDbEKS.m
 
 示例
 
