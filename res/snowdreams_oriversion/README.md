@@ -59,7 +59,9 @@ db = dbBrightPiano;
 mus1     = NoteJoinFromDb ( notes1,     tb1{:, 2}',     db,     t32, 4); 
 mus2     = NoteJoinFromDb ( notes2,     tb2{:, 2}',     db,     t32, 4); 
 musTube  = NoteJoinFromDb1( notesNTube, tbNTube{:, 2}', dbOboe, t32, 4-12); 
-mus = musTube + 0.6 * (mus1 + mus2); mus = mus / max(abs(mus)); 
-audiowrite("snowdreams_oriversion/snowdreams_oriversion_Oboe-12_0.6BrightPiano.flac", mus, fs)
+% mus = musTube + 0.6 * (mus1 + mus2); mus = mus / max(abs(mus)); 
+% audiowrite("snowdreams_oriversion/snowdreams_oriversion_Oboe-12_0.6BrightPiano.flac", mus, fs)
+mus = musTube + 0.6 * (mus1 + mus2); mus = 0.8 * mus / max(abs(mus));
+clear sound; sound(mus, fs)
 
 ```
