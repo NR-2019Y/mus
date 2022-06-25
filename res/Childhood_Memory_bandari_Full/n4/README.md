@@ -4,10 +4,11 @@ EFULL.TXT HFULL.TXT L8VA.TXT
 
 整理得到 cmn4.wl
 
+网页版简谱：cmn4_4c.html
+
 #### 生成音频(mathematica)
 
 ```{mathematica}
-SetDirectory["C:/Users/Lenovo/emusic/mma/Childhood_Memory/bandari/n4"];
 Import["cmn4.wl"];
 mus1[[-1, 2, 2]] = mus1[[-1, 2, 2]] + 32;
 mus2[[-1, 2, 2]] = mus2[[-1, 2, 2]] + 32;
