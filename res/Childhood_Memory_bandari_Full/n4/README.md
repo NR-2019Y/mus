@@ -7,26 +7,29 @@ EFULL.TXT HFULL.TXT L8VA.TXT
 #### 生成音频(mathematica)
 
 ```{mathematica}
+SetDirectory["C:/Users/Lenovo/emusic/mma/Childhood_Memory/bandari/n4"];
 Import["cmn4.wl"];
+mus1[[-1, 2, 2]] = mus1[[-1, 2, 2]] + 32;
+mus2[[-1, 2, 2]] = mus2[[-1, 2, 2]] + 32;
 
 ToneAdjust[None, n_] = None;
 ToneAdjust[x_, n_] := x + n;
-nadjust = 0;
 Len[None] = 1;
 Len[x_] := Max[1, Length[x]];
 
-nadjust = 0;
-tmul = 103/ 1000;
-
-mus1[[-1]] = {21, {1856, 1920}};
-mus2[[-1]] = {{9, 16, 21}, {1872, 1920}};
+nadjust = -4;
+tmul = 103/1000;
 sd = Sound[Join[
-  Map[SoundNote[ToneAdjust[#[[1]], nadjust], #[[2]]*tmul, "Harp",  SoundVolume -> 1  /Sqrt[Len[#[[1]]]]] &, mus0],
-  Map[SoundNote[ToneAdjust[#[[1]], nadjust], #[[2]]*tmul, "Piano", SoundVolume -> 1  /Sqrt[Len[#[[1]]]]] &, mus0], 
-  Map[SoundNote[ToneAdjust[#[[1]], nadjust], #[[2]]*tmul, "Piano", SoundVolume -> 1  /Sqrt[Len[#[[1]]]]] &, mus1],
-  Map[SoundNote[ToneAdjust[#[[1]], nadjust], #[[2]]*tmul, "Harp",  SoundVolume -> 0.8/Sqrt[Len[#[[1]]]]] &, mus2]
-]];
-(* Export["cmn4f2_Harp_Piano.flac", sd] *)
+    Map[SoundNote[ToneAdjust[#[[1]], nadjust], #[[2]]*tmul, "Harp", 
+       SoundVolume -> 1/Sqrt[Len[#[[1]]]]] &, mus0], 
+    Map[SoundNote[ToneAdjust[#[[1]], nadjust], #[[2]]*tmul, "Piano", 
+       SoundVolume -> 1/Sqrt[Len[#[[1]]]]] &, mus0], 
+    Map[SoundNote[ToneAdjust[#[[1]], nadjust], #[[2]]*tmul, "Piano", 
+       SoundVolume -> 1/Sqrt[Len[#[[1]]]]] &, mus1], 
+    Map[SoundNote[ToneAdjust[#[[1]], nadjust], #[[2]]*tmul, "Harp", 
+       SoundVolume -> 0.8/Sqrt[Len[#[[1]]]]] &, mus2]
+    ]];
+(* Export["mma/cmn4-4_Harp_Piano_mma.flac", sd] *)
 
 ```
 
