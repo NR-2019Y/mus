@@ -52,5 +52,5 @@ adsrdb = { ...
 };
 
 dbk1adsr1 = genNote4SecDbADSR( kdb{1}, adsrdb{1} );
-
+dbMyPiano1 = genNote4SecDbEKS(0.9, Inf, [0.05 0.9 0.05], 0.1)
 ```
